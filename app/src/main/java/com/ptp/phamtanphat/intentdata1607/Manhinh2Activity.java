@@ -34,10 +34,16 @@ public class Manhinh2Activity extends AppCompatActivity {
 //            Log.d("BBB",mangten.size()  + "");
 //        }
         //Kieu 4 : Object
+//        Intent intent = getIntent();
+//        if (intent.hasExtra("object")){
+//            Nhanvien nhanvien = (Nhanvien) intent.getSerializableExtra("object");
+//            Log.d("BBB",nhanvien.ten );
+//        }
+//        Kieu 5 : ArrayList<Object>
         Intent intent = getIntent();
-        if (intent.hasExtra("object")){
-            Nhanvien nhanvien = (Nhanvien) intent.getSerializableExtra("object");
-            Log.d("BBB",nhanvien.ten );
+        if (intent.hasExtra("mangobject")){
+            ArrayList<Nhanvien> mangnhanvien = intent.getParcelableArrayListExtra("mangobject");
+            Log.d("BBB",mangnhanvien.size() + "" );
         }
     }
 }

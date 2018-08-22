@@ -44,18 +44,25 @@ public class MainActivity extends AppCompatActivity {
                 ArrayList<String> mangten = new ArrayList<>(Arrays.asList("Nguyen Van A", "Nguyen Van B", "Nguyen Van C"));
                 Intent intent = new Intent(MainActivity.this, Manhinh2Activity.class);
                 intent.putStringArrayListExtra("mang", mangten);
+
                 startActivity(intent);
             }
         });
         btnObject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Nhanvien nhanvien = new Nhanvien("Nguyen Van A", "30");
-                SendData("object", nhanvien);
+//                Nhanvien nhanvien = new Nhanvien("Nguyen Van A", "30");
+//                SendData("object", nhanvien);
+                ArrayList<Nhanvien> mangnhanvien = new ArrayList<>();
+                mangnhanvien.add(new Nhanvien("Nguyen Van A","30"));
+                mangnhanvien.add(new Nhanvien("Nguyen Van B","40"));
+
+                Intent intent = new Intent(MainActivity.this,Manhinh2Activity.class);
+                intent.putParcelableArrayListExtra("mangobject",mangnhanvien);
+                startActivity(intent);
             }
         });
-
-
+   
     }
 
     public <T> void SendData(String chuoi, T value) {
