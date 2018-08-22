@@ -57,9 +57,10 @@ public class MainActivity extends AppCompatActivity {
                 mangnhanvien.add(new Nhanvien("Nguyen Van A","30"));
                 mangnhanvien.add(new Nhanvien("Nguyen Van B","40"));
 
-                Intent intent = new Intent(MainActivity.this,Manhinh2Activity.class);
-                intent.putParcelableArrayListExtra("mangobject",mangnhanvien);
-                startActivity(intent);
+//                Intent intent = new Intent(MainActivity.this,Manhinh2Activity.class);
+//                intent.putParcelableArrayListExtra("mangobject",mangnhanvien);
+//                startActivity(intent);
+                SendData("mangobject",mangnhanvien);
             }
         });
    
@@ -73,13 +74,18 @@ public class MainActivity extends AppCompatActivity {
         if (value instanceof Integer) {
             intent.putExtra(chuoi, (Integer) value);
         }
-        if (value instanceof ArrayList<?>) {
-            if (value instanceof String) {
-                intent.putStringArrayListExtra(chuoi, (ArrayList<String>) value);
-            }
-        }
+//        if (value instanceof ArrayList<?>) {
+//            if (value instanceof String) {
+//                intent.putStringArrayListExtra(chuoi, (ArrayList<String>) value);
+//            }
+//        }
         if (value instanceof Nhanvien) {
             intent.putExtra(chuoi, (Nhanvien) value);
+        }
+        if (value instanceof ArrayList<?>){
+            if (value instanceof Object){
+                intent.putParcelableArrayListExtra(chuoi,(ArrayList<Nhanvien>) value);
+            }
         }
         startActivity(intent);
     }
